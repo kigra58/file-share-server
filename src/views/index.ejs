@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div className="col-6 mx-auto mt-5 shadow">
+        <div className="card border-info mb-3">
+          <div className="card-header">
+            <h5> File Sharing </h5>
+          </div>
+          <div className="card-body">
+            <div className="col-6 mx-auto">
+                <form action="/upload" method="post" enctype="multipart/form-data" >
+                <input
+                  type="file"
+                  className="form-control my-3"
+                  required
+                  name="file"
+                />
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter Password"
+                  multiple={false}
+                  required
+                  name="password"
+                />
+                <button className="btn btn-outline-info mt-4" type="submit">
+                  Generate Link
+                </button>
+              </form>
+              <% if (locals.fileLink) { %>
+                <a href="<%= locals.fileLink %>"> </a>
+             <% } else{ %>
+               <h2> not found </h2>
+               <%  } %>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
