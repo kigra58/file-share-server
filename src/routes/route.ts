@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { Auth } from "../middlerware/auth";
-import { downloadFile, uploadFile } from "../controller/controller";
+import { downloadFile, uploadFile, verify } from "../controller/controller";
 import multer from "multer";
 const router = Router();
 
@@ -10,6 +10,11 @@ const router = Router();
 
 const upload = multer({ dest: "uploads" }).single("file");
 router.post("/upload", upload, uploadFile);
+
+/**
+ * VERFIED FILE
+ */
+router.post("/verify/file/:id", verify);
 
 /**
  *  DOWNLOAD FILE

@@ -7,7 +7,7 @@ import conn from "./connection/connection";
 import router from "./routes/route";
 
 config();
-conn(process.env.DATABASE_URL as string);
+conn();
 const app = express();
 app.use(cors());
 app.use(express.json());

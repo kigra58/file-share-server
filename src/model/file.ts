@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const FileSchema = new mongoose.Schema({
+const FileSchema = new mongoose.Schema(
+  {
     path: {
       type: String,
       required: true,
@@ -13,13 +14,18 @@ const FileSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    verified: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     downloadCount: {
       type: Number,
       required: true,
-      default:0
+      default: 0,
     },
   },
-  {timestamps:true}
-  );
-  
+  { timestamps: true }
+);
+
 export const FileModel = mongoose.model("File", FileSchema);
